@@ -1,26 +1,26 @@
 import numpy as np
 
+data_set = [
+	((0, 0, 0), 0), ((0, 0, 1), 0),
+	((0, 1, 0), 0), ((0, 1, 1), 0),
+	((1, 0, 0), 1), ((1, 0, 1), 1),
+	((1, 1, 0), 0), ((1, 1, 1), 1)]
 
-def relu(x):  # activation function
+
+def activation_function(x):
 	return int(x >= 1)
 
 
 def predict(cool_hero, horror, sci_fi):
 	x = np.array([cool_hero, horror, sci_fi])
-	w11 = [0.6, 0.3, 0]
-	w12 = [0.5, -0.5, 1]
-	weight1 = np.array([w11,  w12])
-	weight2 = np.array([-1, 1])
-	
-	sum_hidden = np.dot(weight1, x)
-	
-	out_hidden = np.array([relu(x) for x in sum_hidden])
-	
-	sum_end = np.dot(weight2, out_hidden)
-	return relu(sum_end)
+	weights = np.array([[1.5], [-1], [0.5]])
+	sum_out = np.dot(x, weights)
+	out = np.array([activation_function(x) for x in sum_out])
+	return out
 
 
 for cool in (0, 1):
 	for horror in (0, 1):
 		for sci_fi in (0, 1):
 			print(f"({cool, horror, sci_fi}) - {predict(cool, horror, sci_fi)}")
+
