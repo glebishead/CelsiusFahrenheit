@@ -36,10 +36,10 @@ for el in data:
 		s_l.append('научная фантастика')
 	info = ',\n'.join(s_l)
 	if info:
-		info = 'Её тэги: ' + info + '.\n'
+		info = 'Её теги: ' + info + '.\n'
 	if predict(cool, horror, sci_fi):
-		print(f"Книга {name}.\nЕё автор: {author}.\n{info}Эта книга была посоветована Вам.")
+		print(f"Книга {name}\nЕё автор: {author}\n{info}Эта книга была посоветована Вам.")
 	else:
-		print(f"Книга {name}.\nЕё автор: {author}.\n{info}Возможно, она Вам не понравится.")
+		print(f"Книга {name}\nЕё автор: {author}\n{info}Возможно, она Вам не понравится.")
 	print('--------------')
 
